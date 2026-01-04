@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <div>
-      Next JS
+      Next JS Home Page
     </div>
   );
 }
