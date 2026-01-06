@@ -1,13 +1,20 @@
 import React, {FC} from 'react';
-import {IUser} from "@/models/IUser";
 import {SearchParams} from "next/dist/server/request/search-params";
 import IPost from "@/models/IPost";
+import {Metadata} from "next";
 
 
 type PostPageProps = {
     params: Promise<{id:string}>,
     searchParams: Promise<SearchParams>
 }
+
+export const generateMetadata = async ({params}:PostPageProps):Promise<Metadata> =>{
+    const {id} = await params;
+
+    return {title: 'Comment ID-' + id}
+}
+
 const Page:FC<PostPageProps> = async ({searchParams}) => {
 
     const {data} = await searchParams;

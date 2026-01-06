@@ -1,10 +1,16 @@
 import React, {FC} from 'react';
 import {SearchParams} from "next/dist/server/request/search-params";
 import {IUser} from "@/models/IUser";
+import {Metadata} from "next";
 
 type UserPageProps = {
     params: Promise<{id:string}>,
     searchParams: Promise<SearchParams>
+}
+export const generateMetadata = async ({params}:UserPageProps):Promise<Metadata> =>{
+    const {id} = await params;
+
+    return {title: 'User ID-' + id}
 }
 const Page:FC<UserPageProps> = async ({searchParams}) => {
 
@@ -16,7 +22,6 @@ const Page:FC<UserPageProps> = async ({searchParams}) => {
         obj = JSON.parse(data) as IUser;
         console.log(obj)
     }
-
 
     return (
         <div>
