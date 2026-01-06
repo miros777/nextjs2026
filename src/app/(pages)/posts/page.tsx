@@ -1,9 +1,11 @@
 import React from 'react';
+import PostsComponent from "@/components/posts/PostsComponent";
 
 const Page = () => {
     return (
         <div>
-            Users Page
+            Posts Page
+            <PostsComponent/>
         </div>
     );
 };
