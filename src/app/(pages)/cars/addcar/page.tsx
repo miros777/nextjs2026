@@ -1,35 +1,15 @@
-import React from 'react';
-import Form from "next/form";
-import {getAllCarsFromDB, saveCar} from "@/server-actions/saveCar";
-import ICar from "@/models/ICar";
+import FormComponentCreateNewCar from "@/components/form/FormComponentCreateNewCar";
+import CarsComponentFromDB from "@/components/cars/CarsComponentFromDB";
 
-const Page = async () => {
+const Page = () => {
 
-    const carsFromDB = await getAllCarsFromDB();
     return (
         <div>
-            <h2>Form to created new cat to our SQLITE DB</h2>
-            <Form action={saveCar}>
-                <input type="text" name="brand" placeholder="brand" />
-                <input type="number" name="price" placeholder="price" />
-                <input type="number" name="year" placeholder="year" />
-                <button type="submit">Add Car</button>
-            </Form>
+            <FormComponentCreateNewCar/>
 
-
-            <div>
-
-                {carsFromDB.map((car: ICar) => (
-                    <div key={car.id}>
-                        <div>{car.id}</div>
-                        <div>{car.brand}</div>
-                        <div>{car.price}</div>
-                        <hr/>
-                    </div>
-                ))}
-            </div>
+            <h2>All current DB Cars from DB</h2>
+            <CarsComponentFromDB/>
         </div>
-
 
     );
 };

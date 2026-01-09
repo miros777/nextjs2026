@@ -9,11 +9,12 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "better-sqlite3": "^12.5.0",
+    "joi": "^18.0.2",
     "next": "16.1.1",
     "react": "19.2.3",
-    "react-dom": "19.2.3",
-    "better-sqlite3": "^12.5.0",
-    "@types/better-sqlite3": "^7.6.13"
+    "react-dom": "19.2.3"
   },
   "devDependencies": {
     "@types/node": "^20",
